@@ -4,7 +4,7 @@ import database as map_loader
 from a_star import AStarSolver, get_node_by_street
 
 
-def visualize_search(map_name, start_street, end_street, dist=1000):
+def visualize_search(map_name, start_street, end_street):
     # 1. Load Map
     print("Loading map...")
     G = map_loader.load_map(map_name)
