@@ -278,3 +278,7 @@ pip-selfcheck.json
 .idea/
 
 .python-version
+
+*.graphml
+
+cache/
