@@ -47,6 +47,7 @@ def load_map(filename : str):
 # This runs only if you execute this file directly (not when importing it)
 if __name__ == "__main__":
     # Example usage:
+    download_map("Ramat Shared Jerusalem Israel", 1000)
     graph = load_map("Ramat_Sharet_Jerusalem_Israel_1000m.graphml")
 
     if graph:
