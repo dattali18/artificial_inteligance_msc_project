@@ -3,7 +3,7 @@ import networkx as nx
 import osmnx as ox
 import numpy as np
 import matplotlib.pyplot as plt
-from map_loader import load_map
+from database import load_map
 from a_star import AStarSolver, get_node_by_street
 
 
