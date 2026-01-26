@@ -81,8 +81,8 @@ def visualize_search(map_name, start_street, end_street):
 
 
 if __name__ == "__main__":
-    MAP_NAME = "../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml"
-    START = "מרץ דוד"
-    END = "הפסגה"
+    MAP_NAME = "../database/ELTA_Square_Ashdod_1000m.graphml"
+    START = "שדרות ירושלים"
+    END = "הלל"
 
     visualize_search(MAP_NAME, START, END)

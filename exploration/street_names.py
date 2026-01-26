@@ -30,7 +30,7 @@ def get_all_street_names(G):
 if __name__ == "__main__":
     # 1. Load the map using your existing loader
     # Make sure this matches the filename you already have in your database folder
-    map_name = "../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml"
+    map_name = "../database/ELTA_Square_Ashdod_1000m.graphml"
     G = load_map(map_name)
 
     if G:

@@ -145,29 +145,24 @@ class QLearningAgent:
 
 # --- TEST BLOCK ---
 if __name__ == "__main__":
-    import map_loader
-    import osmnx as ox
-    import matplotlib.pyplot as plt
-
-    # 1. Load a SMALLER map for RL (so it learns faster)
+    # Load a SMALLER map for RL (so it learns faster)
     # 500m radius is good for testing
-    map_name = "Ramat_Sharet_Jerusalem_Israel_RL_Test"
-    G = map_loader.load_map("Ramat Sharet, Jerusalem", dist=400, filename=None)
+    G = map_loader.load_map("../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml")
 
-    # 2. Define Start/Goal
+    # Define Start/Goal
     nodes = list(G.nodes)
     start = nodes[0]
     end = nodes[50]  # Pick a node not too far away
 
     print(f"Start: {start}, Goal: {end}")
 
-    # 3. Initialize and Train
+    # Initialize and Train
     agent = QLearningAgent(G, start, end)
 
     # Needs enough episodes to explore the map!
     agent.train(episodes=2000)
 
-    # 4. Extract Path
+    # Extract Path
     learned_path = agent.get_best_path()
     print(f"Learned Path Length: {len(learned_path)} nodes")
 
