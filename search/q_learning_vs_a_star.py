@@ -2,23 +2,15 @@
 # REINFORCEMENT LEARNING NAVIGATION SYSTEM - FINAL PROJECT
 # A* vs Q-Learning: A Comparative Study
 # ============================================================================
-
-print("Installing required packages...")
-try:
-    import osmnx as ox
-except ImportError:
-    !pip install osmnx networkx matplotlib numpy pandas -q
-    import osmnx as ox
-
 import networkx as nx
+import osmnx as ox
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import random
 from collections import defaultdict, deque
 import time
-
-print("✓ Packages installed successfully!\n")
+from database import map_loader
 
 # ============================================================================
 # PART 1: ENVIRONMENT & HELPERS
@@ -255,10 +247,7 @@ class QLearningNavigator:
 # ============================================================================
 
 def run_experiment():
-    # 1. Setup Map
-    print("\n1. Downloading Map Data (Jerusalem)...")
-    place = "Ramat Sharet, Jerusalem, Israel"
-    G = ox.graph_from_address(place, dist=600, network_type='walk')
+    G = map_loader.load_map("../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml")
     
     # 2. Select Points
     nodes = list(G.nodes)
@@ -352,7 +341,7 @@ def compare_results(G, start, goal, astar_path, rl_path, metrics):
     })
     
     print("\n--- Detailed Comparison Table ---")
-    display(df) if 'display' in globals() else print(df)
+    print(df) if 'display' in globals() else print(df)
     
     # --- VISUALIZATION 3: EFFICIENCY CHART ---
     # Normalize values for easier charting
@@ -386,12 +375,10 @@ run_experiment()
 # ============================================================================
 
 def run_multi_path_experiment():
-    # 1. Setup Map
-    print("\n📍 Downloading Map Data (Jerusalem)...")
-    place = "Ramat Sharet, Jerusalem, Israel"
-    G = ox.graph_from_address(place, dist=800, network_type='walk')
-    nodes = list(G.nodes)
-    
+    G = map_loader.load_map("../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml")
+    node = list(G.nodes)
+    nodes = random.sample(node, 250)  # Sample 250 random nodes for scenarios
+
     # 2. Define Scenarios (Start Node Index, Goal Node Index, Label)
     scenarios = [
         (10, 50, "Short Scenario"),
@@ -459,7 +446,7 @@ def run_multi_path_experiment():
     print("\n" + "!"*40)
     print("FINAL MULTI-PATH SUMMARY")
     print("!"*40)
-    display(summary_df)
+    print(summary_df)
 
 # Run the experiment
 run_multi_path_experiment()
