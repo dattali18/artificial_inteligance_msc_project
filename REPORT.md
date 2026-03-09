@@ -27,6 +27,8 @@ The algorithms were evaluated across 100 randomly generated source-destination p
 | **ACO** | $\infty$ (Did not converge) | 0.0034 | 793.32 | 0% |
 | **Q-Learning** | $\infty$ (Did not converge) | 0.0798 | 43223.35 | 0% |
 
+![visaluzation](images/a_star.png)
+
 ### 4. Verbal Analysis of Results
 
 The evaluation highlights a stark contrast between deterministic search and probabilistic learning models on static, real-world spatial graphs:
