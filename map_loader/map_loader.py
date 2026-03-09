@@ -3,20 +3,6 @@ import os
 
 
 def download_map(place_name="Rehavia, Jerusalem, Israel", dist=1000, filename=None):
-    """
-    Acquires the map graph.
-    1. Tries to load from a local file first.
-    2. If file doesn't exist, downloads from OSM and saves it.
-
-    Args:
-        place_name (str): Address/Name for the center point.
-        dist (int): Radius in meters.
-        filename (str, optional): Custom filename. If None, generates one from the place name.
-
-    Returns:
-        G: The NetworkX MultiDiGraph object.
-    """
-
     print(f"[DOWNLOAD] Local file not found. Downloading {place_name} (r={dist}m)...")
     try:
         G = ox.graph_from_address(place_name, dist=dist, network_type='walk')
@@ -46,7 +32,7 @@ def load_map(filename : str):
 
 if __name__ == "__main__":
     # Example usage:
-    download_map("ELTA Square Ashdod", 1000, filename="ELTA_Square_Ashdod_1000m.graphml")
+    download_map("ELTA Square Ashdod", 1000, filename="../maps/ELTA_Square_Ashdod_1000m.graphml")
     # graph = load_map("Ramat_Sharet_Jerusalem_Israel_1000m.graphml")
     #
     # if graph:
