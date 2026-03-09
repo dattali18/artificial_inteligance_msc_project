@@ -279,6 +279,6 @@ pip-selfcheck.json
 
 .python-version
 
-*.graphml
+#*.graphml
 
 cache/

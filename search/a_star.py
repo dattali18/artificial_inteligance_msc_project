@@ -1,5 +1,7 @@
 import heapq
 import math
+import random
+
 import networkx as nx
 import osmnx as ox
 from database import load_map
@@ -109,20 +111,22 @@ def get_node_by_street(G, street_name):
                     return u
     return None
 
-# --- Visualization & Testing Block ---
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     # 1. Load the map (Using your local file if it exists)
-    map_name = "../database/Ramat_Sharet_Jerusalem_Israel_1000m.graphml"
+    map_name = "../database/Hapisga_St_Jerusalem_1000m.graphml"
     print(f"Loading map: {map_name}...")
     G = load_map(map_name)
 
     # 2. Pick random Start and End points
     # (We convert the graph nodes view to a list to pick by index)
     all_nodes = list(G.nodes)
-    start = get_node_by_street(G, 'מרץ דוד')
-    end = get_node_by_street(G, 'הפסגה')
+    # start = get_node_by_street(G, 'מרץ דוד')
+    # end = get_node_by_street(G, 'הפסגה')
+
+    start = random.choice(all_nodes)
+    end = random.choice(all_nodes)
 
     print(f"Start Node: {start}")
     print(f"Goal Node: {end}")

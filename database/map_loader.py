@@ -43,8 +43,7 @@ def load_map(filename : str):
 
     return G
 
-# --- Test Block ---
-# This runs only if you execute this file directly (not when importing it)
+
 if __name__ == "__main__":
     # Example usage:
     download_map("ELTA Square Ashdod", 1000, filename="ELTA_Square_Ashdod_1000m.graphml")
