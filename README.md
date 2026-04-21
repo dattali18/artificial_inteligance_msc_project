@@ -68,3 +68,5 @@ The evaluation highlights a stark contrast between deterministic search and prob
 
 We used AI tools like GitHub Copilot and Google Gemini to help us understand how to use the OSMnx library. We also utilized them to write clean, readable solution algorithms, assist in debugging the reward shaping for the Q-learning agent, and to interpret, format, and summarize the final evaluation metrics for this report.
 
+![image](images/a_star.png)
+
